@@ -6,22 +6,22 @@ import { useState } from 'react';
 const { Title } = Typography;
 
 export default function EncryptPage() {
-  const [decodedMessage, setdecodedMessage] = useState<string>(''); // ✅ เก็บข้อความที่ถูกเข้ารหัส
+  const [encryptdMessage, setencryptdMessage] = useState<string>(''); // ✅ เก็บข้อความที่ถูกเข้ารหัส
   const [key, setKey] = useState<string>(''); // ✅ คีย์ที่ใช้เข้ารหัส
   const [plaintext, setPlaintext] = useState<string>(''); // ✅ ข้อความที่ต้องการเข้ารหัส
   const [loading, setLoading] = useState<boolean>(false); // ✅ สถานะโหลด
 
-  const handledecode = async () => {
+  const handleencrypt = async () => {
     if (!key || !plaintext) {
       message.error('❌ กรุณากรอก Key และ Plaintext');
       return;
     }
 
     setLoading(true); // ✅ เริ่มโหลด
-    setdecodedMessage(''); // ✅ รีเซ็ตค่าก่อนส่ง API
+    setencryptdMessage(''); // ✅ รีเซ็ตค่าก่อนส่ง API
 
     try {
-      const response = await fetch('http://10.100.22.45:5000/decryption', {
+      const response = await fetch('http://10.100.22.80:5000/encryption', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,12 +38,12 @@ export default function EncryptPage() {
       }
 
       const data = await response.json(); // ✅ รับค่าจาก API
-      setdecodedMessage(data.data || '⚠️ ไม่มีข้อมูลที่ถูกเข้ารหัส');
+      setencryptdMessage(data.data || '⚠️ ไม่มีข้อมูลที่ถูกเข้ารหัส');
 
     } catch (error: any) {
       console.error('Error encoding:', error);
       message.error('❌ ไม่สามารถเชื่อมต่อ API ได้');
-      setdecodedMessage('❌ เกิดข้อผิดพลาดในการเข้ารหัส');
+      setencryptdMessage('❌ เกิดข้อผิดพลาดในการเข้ารหัส');
     } finally {
       setLoading(false); // ✅ หยุดโหลด
     }
@@ -62,32 +62,32 @@ export default function EncryptPage() {
         style={{
           width: '600px',
           padding: '15px',
-          background: '#fff',
+          background: 'rgb(0 0 0 / 20%)',
           borderRadius: '8px',
           boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
         }}
       >
         <Title level={1} style={{ textAlign: 'center', fontSize: '32px' }}>
-          Sonakul Decode
+          Sonakul Encrypt
         </Title>
 
-        <Form name="encrypt-form" layout="vertical" onFinish={handledecode}>
+        <Form name="encrypt-form" layout="vertical" onFinish={handleencrypt}>
           <Form.Item label="🔑 Key" required>
             <Input
               value={key}
               onChange={(e) => setKey(e.target.value)}
-              placeholder="Enter decryption key"
+              placeholder="Enter Encryption Key"
               prefix={<LockOutlined />}
               size="large"
             />
           </Form.Item>
 
-          <Form.Item label="📝 Ciphertext" required>
+          <Form.Item label="📝 Plaintext" required>
             <Input.TextArea
               value={plaintext}
               onChange={(e) => setPlaintext(e.target.value)}
               rows={5}
-              placeholder="Enter Ciphertext to decrypt"
+              placeholder="Enter Plaintext To Encrypt"
               style={{ fontSize: '16px' }}
             />
           </Form.Item>
@@ -100,16 +100,16 @@ export default function EncryptPage() {
               style={{ width: '100%', fontSize: '18px' }}
               disabled={loading}
             >
-              {loading ? <Spin indicator={<LoadingOutlined />} /> : '🚀 Decode Now'}
+              {loading ? <Spin indicator={<LoadingOutlined />} /> : '🚀 Encrypt Now'}
             </Button>
           </Form.Item>
         </Form>
 
-        {decodedMessage && (
+        {encryptdMessage && (
           <div style={{ marginTop: '20px' }}>
-            <Title level={3}>🔐 Decoded Message</Title>
+            <Title level={3}>🔐 encryptd Message</Title>
             <Input.TextArea
-              value={decodedMessage}
+              value={encryptdMessage}
               rows={5}
               readOnly
               style={{ backgroundColor: '#f5f5f5', borderColor: '#d9d9d9', fontSize: '16px' }}

@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import NavLink from './nav-link';
 import 'antd/dist/reset.css';
 
-const { Sider, Content, Footer } = Layout;
+const { Header, Sider, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 import { Typography } from 'antd';
 import { HeaderComponent } from '../components/header';
@@ -110,20 +110,20 @@ export default function RootLayout({ children }: { children: any }) {
                 </SubMenu>
 
                 <SubMenu key="sonakul" icon={<SlidersOutlined />} title="Sonakul">
-                  <Menu.Item key="sonakul-encode" icon={<LockOutlined />}>
-                    <NavLink href="/sonakul/encode">Encode</NavLink>
+                  <Menu.Item key="sonakul-encrypt" icon={<LockOutlined />}>
+                    <NavLink href="/sonakul/encrypt">Encrypt</NavLink>
                   </Menu.Item>
-                  <Menu.Item key="sonakul-decode" icon={<UnlockOutlined />}>
-                    <NavLink href="/sonakul/decode">Decode</NavLink>
+                  <Menu.Item key="sonakul-decrypt" icon={<UnlockOutlined />}>
+                    <NavLink href="/sonakul/decrypt">Decrypt</NavLink>
                   </Menu.Item>
                 </SubMenu>
 
                 <SubMenu key="otp" icon={<DeploymentUnitOutlined />} title="OTP">
-                  <Menu.Item key="otp-encode" icon={<LockOutlined />}>
-                    <NavLink href="/OTP/encode">Encode</NavLink>
+                  <Menu.Item key="otp-encrypt" icon={<LockOutlined />}>
+                    <NavLink href="/OTP/encrypt">Encrypt</NavLink>
                   </Menu.Item>
-                  <Menu.Item key="otp-decode" icon={<UnlockOutlined />}>
-                    <NavLink href="/OTP/decode">Decode</NavLink>
+                  <Menu.Item key="otp-decrypt" icon={<UnlockOutlined />}>
+                    <NavLink href="/OTP/decrypt">Decrypt</NavLink>
                   </Menu.Item>
                 </SubMenu>
               </Menu>
@@ -143,8 +143,8 @@ export default function RootLayout({ children }: { children: any }) {
               </Content>
               <Footer style={{ textAlign: 'center' }}>
                 Made with {<HeartTwoTone twoToneColor="#993399" />} by{' '}
-                <Link href="https://github.com/khiwqq" target="_blank">
-                  Khiwqq
+                <Link href="https://github.com/SOBC67" target="_blank">
+                  SOBC 67
                 </Link>
               </Footer>
             </Layout>
