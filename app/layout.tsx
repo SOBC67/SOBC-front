@@ -7,8 +7,10 @@ import {
   LockOutlined,
   WifiOutlined,
   UnlockOutlined,
+  MenuOutlined,
+  ThunderboltOutlined
 } from '@ant-design/icons';
-import { Layout, Menu, Spin, theme } from 'antd';
+import { Layout, Menu, Spin, theme, Button } from 'antd';
 import { useEffect, useState } from 'react';
 import NavLink from './nav-link';
 import 'antd/dist/reset.css';
@@ -17,12 +19,15 @@ const { Header, Sider, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 import { Typography } from 'antd';
 import { HeaderComponent } from '../components/header';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 const { Link } = Typography;
 
 export default function RootLayout({ children }: { children: any }) {
+  const [collapsed, setCollapsed] = useState(false);
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -52,9 +57,9 @@ export default function RootLayout({ children }: { children: any }) {
             <Spin size="large" />
           </div>
         ) : (
-          <Layout>
-            <Sider trigger={null}>
-              <div
+          <Layout >
+            <Sider trigger={null} collapsible collapsed={collapsed}>
+              {/* <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -63,10 +68,13 @@ export default function RootLayout({ children }: { children: any }) {
                 }}
               >
                 <h1 style={{ color: 'white', margin: 0, fontSize: '24px' }}>SOBC 67</h1>
-                {/* <NavLink href="/" style={{ color: 'white', margin: 0, fontSize: '24px' }}>SOBC 67</NavLink> */}
-              </div>
+              </div> */}
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1" icon={<FundProjectionScreenOutlined />}>
+                <Menu.Item key="SOBC" icon={<ThunderboltOutlined />}>
+                  <NavLink href="/">SOBC 67</NavLink>
+                </Menu.Item>
+
+                <Menu.Item key="IPB" icon={<FundProjectionScreenOutlined />}>
                   <NavLink href="/IPB">IPB Dashboard</NavLink>
                 </Menu.Item>
                 <SubMenu key="IPB Detail" icon={<SlidersOutlined />} title="IPB Detail">
@@ -129,13 +137,26 @@ export default function RootLayout({ children }: { children: any }) {
               </Menu>
             </Sider>
             <Layout className="site-layout">
-              <HeaderComponent />
+              {/* <HeaderComponent /> */}
+              <Header style={{ padding: 0, background: colorBgContainer }}>
+                <Button
+                  type="text"
+                  icon={collapsed ? <MenuOutlined /> : <MenuOutlined />}
+                  onClick={() => setCollapsed(!collapsed)}
+                  style={{
+                    fontSize: '16px',
+                    width: 64,
+                    height: 64,
+                  }}
+                />
+              </Header>
               <Content
                 style={{
                   margin: '24px 16px',
                   padding: 24,
                   minHeight: '100vh',
                   background: colorBgContainer,
+                  borderRadius: '10px',
                   overflow: 'auto',
                 }}
               >

@@ -1,19 +1,21 @@
-import React from "react"
-import { ComposableMap, Geographies, Geography } from "react-simple-maps"
+'use client';
+import { Card, Col, Row, Typography } from 'antd';
 
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-export default function MapChart() {
+const { Title, Link } = Typography;
+
+export default function Home() {
   return (
-    <ComposableMap>
-      <Geographies geography={geoUrl}>
-        {({ geographies }) =>
-          geographies.map((geo) => (
-            <Geography key={geo.rsmKey} geography={geo} />
-          ))
-        }
-      </Geographies>
-    </ComposableMap>
-  )
+    <>
+      <h3> Dashboard</h3>
+      <h3>IPB Dashboard</h3>
+<h3>ลักษณะลมฟ้าอากาศ</h3>
+<p>ลมฟ้าอากาศ ฝน หมอก เมฆ ลม อุณหภูมิ ความชื้นสัมพัทธ์ ความกดอากาศ ข้อมูลแสงสว่าง</p>
+<h3>ลักษณะทั่วไปของพื้นที่</h3>
+<p>ลักษณะภูมิประเทศ ที่สูงต่ำ ทางน้ำไหล พืชพรรณไม้ ลักษณะผิวดิน สิ่งปลูกสร้าง</p>
+<h3>ลักษณะอื่นๆ</h3>  
+<p>การเมือง การเศรษฐกิจ สังคมจิตวิทยา วิทยาศาสตร์และเทคโนโลยี แรงงานพลเรือนในท้องถิ่น</p>  
+<h3>ลักษณะพื้นที่ทางทหาร OACOK</h3>
+    </>
+  );
 }

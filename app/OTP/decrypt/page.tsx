@@ -14,12 +14,12 @@ export default function DecryptPage() {
 
   const handledecrypt = async () => {
     if (!key || !dataChar || !encryptdText) {
-      message.error('กรุณากรอก key, Data Char และ Encryptd Text');
+      message.error('กรุณากรอก key, Data Char และ Decryptd Text');
       return;
     }
     setLoading(true);
     try {
-      const response = await fetch('http://10.100.22.80:5000/otpde', {
+      const response = await fetch('http://10.100.22.116:5000/otpde', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,12 +85,12 @@ export default function DecryptPage() {
             />
           </Form.Item>
 
-          <Form.Item label="🔐 Encryptd Text" required>
+          <Form.Item label="🔐 Decryptd Text" required>
             <Input.TextArea
               value={encryptdText}
               onChange={(e) => setencryptdText(e.target.value)}
               rows={5}
-              placeholder="Enter Encryptd Text"
+              placeholder="Enter Decryptd Text"
               style={{ fontSize: '16px' }}
             />
           </Form.Item>
