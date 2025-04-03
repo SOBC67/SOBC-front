@@ -21,7 +21,7 @@ export default function EncryptPage() {
     setencryptdMessage(''); // ✅ รีเซ็ตค่าก่อนส่ง API
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/encryp', {
+      const response = await fetch('http://127.0.0.1:5000/encryption', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
