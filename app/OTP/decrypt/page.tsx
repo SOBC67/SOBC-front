@@ -44,7 +44,7 @@ export default function DecryptPage() {
     }
     setLoading(true);
     try {
-      const response = await fetch('http://10.100.22.116:5000/otpde', {
+      const response = await fetch('http://127.0.0.1:5000/otpde', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value: encryptdText, c: dataChar, k: key }),
