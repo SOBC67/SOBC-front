@@ -21,7 +21,7 @@ export default function EncryptPage() {
     setdecryptdMessage(''); // ✅ รีเซ็ตค่าก่อนส่ง API
 
     try {
-      const response = await fetch('https://sobc-api.khiwqqkubb.uk/encryption', {
+      const response = await fetch('https://sobc-api.khiwqqkubb.uk/decryption', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
