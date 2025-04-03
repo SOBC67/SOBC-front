@@ -46,7 +46,7 @@ export default function EncryptPage() {
     }
     setEncryptLoading(true);
     try {
-      const response = await fetch('http://10.134.64.121:5000/otpenc', {
+      const response = await fetch('https://sobc-api.khiwqqkubb.uk/otpenc', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value: plaintext, c: dataChar, k: key }),
@@ -72,7 +72,7 @@ export default function EncryptPage() {
 
     try {
       for (let i = 0; i < 10; i++) {
-        const response = await fetch('http://10.134.64.121:5000/otpkey');
+        const response = await fetch('https://sobc-api.khiwqqkubb.uk//otpkey');
         const data = await response.json();
         if (data?.data_key && data?.data_chr) {
           keys.push({ filename: `SOBC6700${i + 1}.KEY`, content: data.data_key });
