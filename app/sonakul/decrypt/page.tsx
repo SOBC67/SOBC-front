@@ -7,6 +7,7 @@ import {
   Spin,
   message,
   theme,
+  Table,
 } from 'antd';
 import {
   LockOutlined,
@@ -23,6 +24,11 @@ export default function DecryptPage() {
   const [ciphertext, setCiphertext] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [keyReturn, setKeyReturn] = useState<string[]>([]);
+  const [replaceKey, setReplaceKey] = useState<number[]>([]);
+  const [sortKey, setSortKey] = useState<number[]>([]);
+  const [ccList, setCcList] = useState<string[]>([]);
+
   const { token } = useToken();
 
   const handleDecrypt = async () => {
@@ -33,6 +39,10 @@ export default function DecryptPage() {
 
     setLoading(true);
     setDecryptedMessage('');
+    setKeyReturn([]);
+    setReplaceKey([]);
+    setSortKey([]);
+    setCcList([]);
 
     try {
       const response = await fetch('https://sobc-api.khiwqqkubb.uk/decryption', {
@@ -47,6 +57,11 @@ export default function DecryptPage() {
 
       const data = await response.json();
       setDecryptedMessage(data.data || '⚠️ ไม่มีข้อมูลที่ถูกถอดรหัส');
+
+      setKeyReturn(data.Key_Return || []);
+      setReplaceKey(data.Replace_Key || []);
+      setSortKey(data.Sort_Key || []);
+      setCcList(data.cc || []);
     } catch (error) {
       console.error('Error decoding:', error);
       message.error('❌ ไม่สามารถเชื่อมต่อ API ได้');
@@ -56,11 +71,65 @@ export default function DecryptPage() {
     }
   };
 
+  const generateTableData = () => {
+    const maxCols = Math.max(
+      keyReturn.length,
+      replaceKey.length,
+      sortKey.length,
+      ...ccList.map((line) => line.length)
+    );
+
+    const data: any[] = [];
+
+    const rowMap = [
+      { label: 'Key', values: keyReturn },
+      { label: 'ลำดับอักษร', values: replaceKey },
+      { label: 'เรียงลำดับใหม่', values: sortKey },
+    ];
+
+    rowMap.forEach(({ label, values }) => {
+      const row: any = { key: label };
+      for (let i = 0; i < maxCols; i++) {
+        row[i.toString()] = values[i] !== undefined ? values[i] : '';
+      }
+      data.push(row);
+    });
+
+    ccList.forEach((line, i) => {
+      const row: any = { key: (i + 1).toString() };
+      Array.from(line).forEach((char, j) => {
+        row[j.toString()] = char;
+      });
+      data.push(row);
+    });
+
+    const columns = [
+      {
+        title: '',
+        dataIndex: 'key',
+        key: 'key',
+        fixed: 'left' as const,
+        width: 120,
+        render: (text: string) => <strong>{text}</strong>,
+      },
+      ...Array.from({ length: maxCols }).map((_, i) => ({
+        title: (i + 1).toString(),
+        dataIndex: i.toString(),
+        key: i.toString(),
+        align: 'center' as const,
+      })),
+    ];
+
+    return { data, columns };
+  };
+
+  const { data, columns } = generateTableData();
+
   return (
     <div
       className="form-container"
       style={{
-        maxWidth: '800px',
+        maxWidth: '1000px',
         margin: '0 auto',
         padding: '24px',
         background: token.colorBgContainer,
@@ -141,6 +210,28 @@ export default function DecryptPage() {
               backgroundColor: token.colorBgElevated,
               color: token.colorText,
             }}
+          />
+        </div>
+      )}
+
+      {keyReturn.length > 0 && (
+        <div style={{ marginTop: '32px' }}>
+          <Title level={4} style={{ color: token.colorTextHeading }}>
+            📊 Sonakul Decryption Table
+          </Title>
+          <Table
+            columns={columns}
+            dataSource={data}
+            pagination={false}
+            bordered
+            scroll={{ x: true }}
+            rowKey="key"
+            size="middle"
+            style={{ marginTop: '16px' }}
+            className="custom-encryption-table"
+            rowClassName={(record) =>
+              ['Key', 'ลำดับอักษร', 'เรียงลำดับใหม่'].includes(record.key) ? 'highlight-row' : ''
+            }
           />
         </div>
       )}
