@@ -135,22 +135,22 @@ export default function RootLayout({ children }: { children: any }) {
                     title={<span style={{ color: textColor }}>Radio Detail</span>}
                   >
                     <Menu.Item key="Profile" icon={<LockOutlined style={{ color: iconColor }} />}>
-                      <NavLink href="/sonakul/encode">Profile</NavLink>
+                      <NavLink href="/radio/Profile">Profile</NavLink>
                     </Menu.Item>
                     <Menu.Item key="BestFeq" icon={<UnlockOutlined style={{ color: iconColor }} />}>
-                      <NavLink href="/sonakul/decode">BestFeq</NavLink>
+                      <NavLink href="/radio/bestFeq">BestFeq</NavLink>
                     </Menu.Item>
                     <Menu.Item key="Hopping" icon={<UnlockOutlined style={{ color: iconColor }} />}>
-                      <NavLink href="/sonakul/decode">Hopping</NavLink>
+                      <NavLink href="/radio/Hopping">Hopping</NavLink>
                     </Menu.Item>
                     <Menu.Item key="Hoplist" icon={<UnlockOutlined style={{ color: iconColor }} />}>
-                      <NavLink href="/sonakul/decode">Hoplist</NavLink>
+                      <NavLink href="/radio/Hoplist">Hoplist</NavLink>
                     </Menu.Item>
                     <Menu.Item key="Autocall" icon={<UnlockOutlined style={{ color: iconColor }} />}>
-                      <NavLink href="/sonakul/decode">Autocall</NavLink>
+                      <NavLink href="/radio/autoCall">Autocall</NavLink>
                     </Menu.Item>
                     <Menu.Item key="AJ10Key" icon={<UnlockOutlined style={{ color: iconColor }} />}>
-                      <NavLink href="/sonakul/decode">AJ 10 Key</NavLink>
+                      <NavLink href="/radio/AJ10key">AJ 10 Key</NavLink>
                     </Menu.Item>
                   </SubMenu>
 
