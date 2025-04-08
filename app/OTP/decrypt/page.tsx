@@ -133,8 +133,8 @@ export default function DecryptPage() {
               return false;
             }}
           >
-            <Button 
-            icon={<UploadOutlined />} block style={{ marginBottom: 12 }}>
+            <Button
+              icon={<UploadOutlined />} className="custom-hover-input" block style={{ marginBottom: 12 }}>
               📤 Upload .KEY / .CHR / .ZIP
             </Button>
           </Upload>

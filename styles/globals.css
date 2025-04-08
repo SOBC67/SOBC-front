@@ -56,9 +56,11 @@ a {
 }
 
 .custom-hover-input:hover,
-.custom-hover-input:focus {
+.custom-hover-input:focus-within,
+.custom-hover-input input:focus {
   border-color: #bd03ec !important;
   box-shadow: 0 0 0 2px rgba(189, 3, 236, 0.3) !important;
+  /* color: #fff !important;  */
 }
 
 .custom-purple-button {

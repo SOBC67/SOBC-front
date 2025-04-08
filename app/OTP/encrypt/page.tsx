@@ -175,7 +175,7 @@ export default function EncryptPage() {
               return false;
             }}
           >
-            <Button icon={<UploadOutlined />} block style={{ marginBottom: 12 }}>
+            <Button icon={<UploadOutlined />} block className="custom-hover-input" style={{ marginBottom: 12 }}>
               📤 Upload .KEY / .CHR / .ZIP
             </Button>
           </Upload>
@@ -183,11 +183,12 @@ export default function EncryptPage() {
 
         <Form.Item>
           <Button
-            type="dashed"
+            // type="dashed"
             icon={<KeyOutlined />}
             loading={genKeyLoading}
             onClick={handleGenerateKey}
             block
+            className="custom-hover-input"
             style={{ marginBottom: 12 }}
           >
             ➕ สร้าง Key & Char อัตโนมัติ (x10)
@@ -247,6 +248,7 @@ export default function EncryptPage() {
         <Form.Item>
           <Button
             type="default"
+            className="custom-hover-input"
             icon={<DownloadOutlined />}
             onClick={handleDownload}
             block
