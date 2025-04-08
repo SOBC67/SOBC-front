@@ -133,3 +133,13 @@ a {
 .ant-spin-dot-item {
   background-color: #bd03ec !important;
 }
+
+.custom-encryption-table .ant-table-cell {
+  font-family: 'Segoe UI', 'Noto Sans Thai', sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+.custom-encryption-table .ant-table-thead > tr > th {
+  text-align: center;
+}
