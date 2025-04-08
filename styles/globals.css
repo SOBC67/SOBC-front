@@ -114,3 +114,22 @@ a {
     padding: 6px !important;
   }
 }
+
+/* ===== SubMenu Arrow สีม่วง ===== */
+
+/* สำหรับ Light Theme */
+.ant-menu-light .ant-menu-submenu-arrow::before,
+.ant-menu-light .ant-menu-submenu-arrow::after {
+  background-color: #bd03ec !important;
+}
+
+/* สำหรับ Dark Theme */
+.ant-menu-dark .ant-menu-submenu-arrow::before,
+.ant-menu-dark .ant-menu-submenu-arrow::after {
+  background-color: #bd03ec !important;
+}
+
+/* ปรับสี Spin Loader (Ant Design) เป็นม่วง */
+.ant-spin-dot-item {
+  background-color: #bd03ec !important;
+}
