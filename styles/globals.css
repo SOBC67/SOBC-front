@@ -1,9 +1,13 @@
+/* =================== Base Reset =================== */
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #f0f2f5;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
 }
 
 a {
@@ -15,67 +19,77 @@ a {
   box-sizing: border-box;
 }
 
+/* =================== Dark Mode =================== */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+
   body {
-    color: white;
-    background: black;
+    background: #0e0e0e;
+    color: #fff;
   }
 }
 
-/* Highlight menu item when selected */
-.ant-menu-dark .ant-menu-item-selected {
+/* =================== Menu Styling (Ant Design) =================== */
+
+/* Light + Dark hover effect */
+.ant-menu-item:hover,
+.ant-menu-submenu-title:hover,
+.ant-menu-sub .ant-menu-item:hover {
+  background-color: rgba(189, 3, 236, 0.1) !important;
+  color: #bd03ec !important;
+}
+
+/* Selected menu item */
+.ant-menu-item-selected,
+.ant-menu-sub .ant-menu-item-selected {
   background-color: #bd03ec !important;
   color: #fff !important;
 }
 
-/* On hover */
-.ant-menu-dark .ant-menu-item:hover {
-  background-color: #000000 !important;
-  color: #fff !important;
+/* Dark theme - hover override */
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-sub .ant-menu-item:hover {
+  background-color: rgba(189, 3, 236, 0.15) !important;
+  color: #bd03ec !important;
 }
 
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background-color: rgba(189, 3, 236, 0.15) !important;
+  color: #bd03ec !important;
+}
 
-/* ปรับพื้นหลังของ SubMenu */
+/* Submenu background (dark theme) */
 .ant-menu-dark .ant-menu-sub {
   background-color: #141414 !important;
 }
 
-/* ปรับ hover ภายใน SubMenu */
-.ant-menu-dark .ant-menu-sub .ant-menu-item:hover {
-  background-color: #000000 !important;
-  color: #fff !important;
-}
-
-/* ปรับ item ที่ถูกเลือกใน SubMenu */
-.ant-menu-dark .ant-menu-sub .ant-menu-item-selected {
-  background-color: #bd03ec !important;
-  color: #fff !important;
-}
-
+/* =================== Inputs =================== */
 .custom-hover-input:hover,
 .custom-hover-input:focus-within,
 .custom-hover-input input:focus {
   border-color: #bd03ec !important;
   box-shadow: 0 0 0 2px rgba(189, 3, 236, 0.3) !important;
-  color: #bd03ec !important; 
+  color: #bd03ec !important;
 }
 
+/* =================== Buttons =================== */
 .custom-purple-button {
   background-color: #bd03ec;
   border-color: #bd03ec;
   color: #fff;
+  transition: all 0.3s ease;
 }
 
 .custom-purple-button:hover,
 .custom-purple-button:focus {
-  background-color: #a102c9 !important; /* สีเข้มขึ้นเล็กน้อย */
+  background-color: #a102c9 !important;
   border-color: #a102c9 !important;
   color: #fff !important;
 }
 
+/* =================== Responsive =================== */
 @media screen and (max-width: 768px) {
   .form-container {
     padding: 16px !important;
