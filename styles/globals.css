@@ -60,7 +60,7 @@ a {
 .custom-hover-input input:focus {
   border-color: #bd03ec !important;
   box-shadow: 0 0 0 2px rgba(189, 3, 236, 0.3) !important;
-  /* color: #fff !important;  */
+  color: #bd03ec !important; 
 }
 
 .custom-purple-button {
