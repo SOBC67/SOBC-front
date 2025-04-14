@@ -67,7 +67,7 @@ export default function DecryptPage() {
     <div
       className="form-container"
       style={{
-        maxWidth: '800px',
+        maxWidth: '1000px',
         margin: '0 auto',
         padding: '24px',
         background: token.colorBgContainer,
