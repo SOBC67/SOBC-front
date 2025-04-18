@@ -77,7 +77,7 @@ export default function DecryptPage() {
       }}
     >
       <Title level={2} style={{ textAlign: 'center', marginBottom: 24, color: token.colorTextHeading }}>
-        🔓 ONE TIME PASSWORD Decrypt
+        🔓 ONE TIME PASSWORD DECRYPT
       </Title>
 
       <Form name="decrypt-form" layout="vertical" onFinish={handledecrypt}>

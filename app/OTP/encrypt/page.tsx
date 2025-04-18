@@ -124,7 +124,7 @@ export default function EncryptPage() {
       }}
     >
       <Title level={2} style={{ textAlign: 'center', marginBottom: 24, color: token.colorTextHeading }}>
-        🔐 ONE TIME PASSWORD Encrypt
+        🔐 ONE TIME PASSWORD ENCRYPT
       </Title>
 
       <Form name="encrypt-form" layout="vertical" onFinish={handleencrypt}>
