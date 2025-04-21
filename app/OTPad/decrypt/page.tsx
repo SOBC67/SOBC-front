@@ -23,16 +23,16 @@ export default function DecryptPage() {
     setResponseMessage('');
 
     try {
-      const res = await fetch('https://example.com/api/decrypt', {
+      const res = await fetch('https://sobc-api.khiwqqkubb.uk/otp10de', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ciphertext }),
+        body: JSON.stringify({ value:ciphertext }),
       });
 
       const data = await res.json();
 
-      if (data?.result) {
-        setResponseMessage(data.result);
+      if (data?.data) {
+        setResponseMessage(data.data);
         message.success('✅ ถอดรหัสสำเร็จ!');
       } else {
         message.error('❌ ไม่สามารถถอดรหัสได้');
