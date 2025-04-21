@@ -124,7 +124,7 @@ export default function EncryptPage() {
       }}
     >
       <Title level={2} style={{ textAlign: 'center', marginBottom: 24, color: token.colorTextHeading }}>
-        🔐 ONE TIME PASSWORD ENCRYPT
+        🔐 ONE TIME PASSWORD
       </Title>
 
       <Form name="encrypt-form" layout="vertical" onFinish={handleencrypt}>
@@ -290,7 +290,7 @@ export default function EncryptPage() {
             {encryptLoading ? (
               <Spin indicator={<LoadingOutlined style={{ color: '#fff' }} />} />
             ) : (
-              '🔐 เริ่มเข้ารหัส'
+              '🔐 เข้ารหัส'
             )}
           </Button>
         </Form.Item>

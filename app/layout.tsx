@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: any }) {
                     <NavLink href="/">HOME</NavLink>
                   </Menu.Item>
 
-                  <Menu.Item key="IPB" icon={<FundProjectionScreenOutlined style={{ color: iconColor }} />}>
+                  {/* <Menu.Item key="IPB" icon={<FundProjectionScreenOutlined style={{ color: iconColor }} />}>
                     <NavLink href="/IPB">IPB Dashboard</NavLink>
                   </Menu.Item>
 
@@ -152,7 +152,7 @@ export default function RootLayout({ children }: { children: any }) {
                     <Menu.Item key="AJ10Key" icon={<UnlockOutlined style={{ color: iconColor }} />}>
                       <NavLink href="/radio/AJ10key">AJ 10 Key</NavLink>
                     </Menu.Item>
-                  </SubMenu>
+                  </SubMenu> */}
 
                   <SubMenu
                     key="Sonakul"
@@ -170,13 +170,26 @@ export default function RootLayout({ children }: { children: any }) {
                   <SubMenu
                     key="OTP"
                     icon={<DeploymentUnitOutlined style={{ color: iconColor }} />}
-                    title={<span style={{ color: textColor }}>OTP</span>}
+                    title={<span style={{ color: textColor }}>OTPassword</span>}
                   >
                     <Menu.Item key="OTP-Encrypt" icon={<LockOutlined style={{ color: iconColor }} />}>
                       <NavLink href="/OTP/encrypt">Encrypt</NavLink>
                     </Menu.Item>
                     <Menu.Item key="OTP-Decrypt" icon={<UnlockOutlined style={{ color: iconColor }} />}>
                       <NavLink href="/OTP/decrypt">Decrypt</NavLink>
+                    </Menu.Item>
+                  </SubMenu>
+
+                  <SubMenu
+                    key="OTPad"
+                    icon={<DeploymentUnitOutlined style={{ color: iconColor }} />}
+                    title={<span style={{ color: textColor }}>OTPad</span>}
+                  >
+                    <Menu.Item key="OTPad-Encrypt" icon={<LockOutlined style={{ color: iconColor }} />}>
+                      <NavLink href="/OTPad/encrypt">Encrypt</NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="OTPad-Decrypt" icon={<UnlockOutlined style={{ color: iconColor }} />}>
+                      <NavLink href="/OTPad/decrypt">Decrypt</NavLink>
                     </Menu.Item>
                   </SubMenu>
                 </Menu>
