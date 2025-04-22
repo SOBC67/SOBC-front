@@ -80,9 +80,9 @@ export default function MaintenancePopup() {
 
             {/* Message */}
             <Paragraph style={{ fontSize: '16px', color: '#3d1300' }}>
-              จะกลับมาให้บริการในวันที่{' '}
+              จะกลับมาให้บริการใน{' '}
               {new Date(MAINTENANCE_START + 0 * 60 * 60 * 1000).toLocaleString('th-TH', {
-                weekday: 'short',
+                weekday: 'long',
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',
