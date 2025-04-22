@@ -57,7 +57,7 @@ export default function MaintenancePopup() {
             footer={null}
             closable={false}
             centered
-            style={{ top: 100 }}
+            style={{ top: 30 }}
             bodyStyle={{
               borderRadius: '16px',
               padding: '32px',
