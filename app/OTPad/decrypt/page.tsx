@@ -23,7 +23,7 @@ export default function DecryptPage() {
     setResponseMessage('');
 
     try {
-      const res = await fetch('https://sobc-api.khiwqqkubb.uk/otp10de', {
+      const res = await fetch('https://sobc-api.khiwqqkubb.uk/otp10dec', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value:ciphertext }),

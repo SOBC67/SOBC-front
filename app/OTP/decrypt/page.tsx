@@ -44,7 +44,7 @@ export default function DecryptPage() {
     }
     setLoading(true);
     try {
-      const response = await fetch('https://sobc-api.khiwqqkubb.uk/otpde', {
+      const response = await fetch('https://sobc-api.khiwqqkubb.uk/otpdec', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value: encryptdText, c: dataChar, k: key }),
