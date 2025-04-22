@@ -33,9 +33,9 @@ export default function EncryptPage() {
 
       if (data?.data) {
         setResponseMessage(data.data);
-        message.success('✅ เข้ารหัสสำเร็จ!');
+        message.success('เข้ารหัสสำเร็จ!');
       } else {
-        message.error('❌ ไม่สามารถเข้ารหัสได้');
+        message.error('ไม่สามารถเข้ารหัสได้');
       }
     } catch (err) {
       message.error('เกิดข้อผิดพลาดในการเรียก API');

@@ -55,9 +55,9 @@ export default function EncryptPage() {
       const data = await response.json();
       if (data?.data) {
         setencryptdMessage(data.data);
-        message.success('✅ เข้ารหัสสำเร็จ!');
+        message.success('เข้ารหัสสำเร็จ!');
       } else {
-        message.error('❌ ไม่สามารถเข้ารหัสได้');
+        message.error('ไม่สามารถเข้ารหัสได้');
       }
     } catch {
       message.error('เกิดข้อผิดพลาดในการเชื่อมต่อ API');
@@ -107,7 +107,7 @@ export default function EncryptPage() {
     charList.forEach((c) => zip.file(c.filename, c.content));
     const content = await zip.generateAsync({ type: 'blob' });
     saveAs(content, 'SOBC67_OTP_KEYS.zip');
-    message.success('✅ ดาวน์โหลด ZIP เรียบร้อยแล้ว!');
+    message.success('ดาวน์โหลด ZIP เรียบร้อยแล้ว!');
   };
 
   return (

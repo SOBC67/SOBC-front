@@ -33,9 +33,9 @@ export default function DecryptPage() {
 
       if (data?.data) {
         setResponseMessage(data.data);
-        message.success('✅ ถอดรหัสสำเร็จ!');
+        message.success('ถอดรหัสสำเร็จ!');
       } else {
-        message.error('❌ ไม่สามารถถอดรหัสได้');
+        message.error('ไม่สามารถถอดรหัสได้');
       }
     } catch (err) {
       message.error('เกิดข้อผิดพลาดในการเชื่อมต่อ API');

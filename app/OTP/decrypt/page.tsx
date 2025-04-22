@@ -53,9 +53,9 @@ export default function DecryptPage() {
       const data = await response.json();
       if (data?.data) {
         setdecryptdMessage(data.data);
-        message.success('✅ ถอดรหัสสำเร็จ!');
+        message.success('ถอดรหัสสำเร็จ!');
       } else {
-        message.error('❌ ไม่สามารถถอดรหัสได้');
+        message.error('ไม่สามารถถอดรหัสได้');
       }
     } catch {
       message.error('เกิดข้อผิดพลาดในการเชื่อมต่อ API');
