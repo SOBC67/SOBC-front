@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import NavLink from './nav-link';
 import { Typography } from 'antd';
 import Image from 'next/image';
-import MaintenancePopup from '../components/MaintenancePopup';
+// import MaintenancePopup from '../components/MaintenancePopup';
 
 import 'antd/dist/reset.css';
 import '../styles/globals.css';
@@ -235,7 +235,7 @@ export default function RootLayout({ children }: { children: any }) {
                     boxShadow: darkMode ? '0 0 12px #000' : '0 0 12px #ccc',
                   }}
                 >
-                  <MaintenancePopup />
+                  {/* <MaintenancePopup /> */}
                   {children}
                 </Content>
 
